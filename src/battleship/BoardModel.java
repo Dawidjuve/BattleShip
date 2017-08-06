@@ -1,13 +1,10 @@
 package battleship;
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
 import battleship.Field.State;
-
-
 
 public class BoardModel {
 	

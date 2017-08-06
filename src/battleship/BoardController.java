@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import javax.swing.AbstractButton;
 
 public class BoardController {
-	
-	
 	private BoardView view;
 	private BoardModel model;
 	private ArrayList<ArrayList<MyButton>> buttonsList;

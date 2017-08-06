@@ -8,7 +8,6 @@ import javax.swing.JToolBar;
 
 public class Frame extends JFrame{
 	
-
 	public Frame()
 	{
 		add(new JLabel("GRACZ"), BorderLayout.NORTH);
