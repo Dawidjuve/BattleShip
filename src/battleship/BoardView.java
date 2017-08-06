@@ -107,7 +107,7 @@ public class BoardView {
 		
 	}
 	public void endGame(){
-		JOptionPane.showMessageDialog(gui, "Wysztkie statki zatopione!");
+		JOptionPane.showMessageDialog(gui, "All Ships are sunken!");
 	}
 	
 	
