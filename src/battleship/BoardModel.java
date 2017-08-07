@@ -110,9 +110,8 @@ public class BoardModel {
 
 	public boolean checkMove(int x, int y){
 		
-		if( fields[x][y].equalsState(State.Ship))
-			return true;
-		else return false;
+		return fields[x][y].equalsState(State.Ship);
+		
 	}
 	
 	public int getShipNumber(int x, int y){

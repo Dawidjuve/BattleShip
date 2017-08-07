@@ -10,13 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
-public class MyButton extends JButton{
+public class Cell extends JButton{
 	
 	private int row;
 	private int col;
 	private int z;
 	
-	public MyButton(int row, int col, int z){
+	public Cell(int row, int col, int z){
 		super();
 		this.row=row;
 		this.col=col;

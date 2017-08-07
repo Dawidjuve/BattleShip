@@ -7,16 +7,11 @@ public class Field {
 	public enum State{
 		Ship ("Ship"),
 		Available("Available"),
-		Unavailable("Unavailable"),
-		PShip("PShip");
+		Unavailable("Unavailable");
 		
 		private String text;
 		private State(String text){
 			this.text=text;
-		}
-		
-		public String toString(){
-			return text;
 		}
 	}
 
@@ -31,8 +26,7 @@ public class Field {
 	}
 	
 	public boolean equalsState(State s){
-		if(this.getState()==s) return true;
-		else return false;
+		return this.getState()==s;
 	}
 	public void setState(State s){
 		this.state = s;

@@ -10,12 +10,12 @@ import javax.swing.AbstractButton;
 public class BoardController {
 	private BoardView view;
 	private BoardModel model;
-	private ArrayList<ArrayList<MyButton>> buttonsList;
+	private ArrayList<ArrayList<Cell>> cellsList;
 	
 	public void createButtonsList(){
-		buttonsList=new ArrayList<ArrayList<MyButton>>();
+		cellsList=new ArrayList<ArrayList<Cell>>();
 		for(int i=0; i<=9; i++){
-			buttonsList.add(new ArrayList<MyButton>());
+			cellsList.add(new ArrayList<Cell>());
 		}
 	}
 	
@@ -34,57 +34,57 @@ public class BoardController {
 
 			if(e.getButton() == 1){
 
-				if (!((MyButton)e.getSource()).isEnabled()) {
+				if (!((Cell)e.getSource()).isEnabled()) {
 					return;
 				}
 
-				showField((MyButton)e.getSource());    
+				showField((Cell)e.getSource());    
 
 			}
 			else if(e.getButton()==3)
 			{
-				if(!((MyButton)e.getSource()).isEnabled() )
+				if(!((Cell)e.getSource()).isEnabled() )
 					return;
-				flagEmpty((MyButton)e.getSource());
+				flagEmpty((Cell)e.getSource());
 			}
 		}
 	}
 
-	public void showField(MyButton mybutton){
+	public void showField(Cell cell){
 		
 		
-		boolean t =model.checkMove(mybutton.getRow(),mybutton.getColumn());
+		boolean t =model.checkMove(cell.getRow(),cell.getColumn());
 		if(t){
-			view.paintX(mybutton);
-			int iter = model.getShipNumber(mybutton.getRow(), mybutton.getColumn());
-			addButtonToShip(mybutton, iter);
+			view.paintX(cell);
+			int iter = model.getShipNumber(cell.getRow(), cell.getColumn());
+			addButtonToShip(cell, iter);
 			if(model.isSunk(iter)){
-				view.paintShip(buttonsList.get(iter));
+				view.paintShip(cellsList.get(iter));
 				if(model.isWinner())
 					view.endGame();
 			}
 				
-			else view.paintMast(mybutton);
+			else view.paintMast(cell);
 		}
-		else view.paintEmpty(mybutton);
-		mybutton.setEnabled(false);
+		else view.paintEmpty(cell);
+		cell.setEnabled(false);
 	}
 	
-	public void flagEmpty(MyButton mybutton){
-		if(mybutton.getZ()==0){
-			view.paintEmpty(mybutton);
-			mybutton.setZ(1);
+	public void flagEmpty(Cell cell){
+		if(cell.getZ()==0){
+			view.paintEmpty(cell);
+			cell.setZ(1);
 		}
-		else if(mybutton.getZ()==1){
-			view.paintStart(mybutton);
-			mybutton.setZ(0);
+		else if(cell.getZ()==1){
+			view.paintStart(cell);
+			cell.setZ(0);
 		}
 	}
 	
 		
-	public void addButtonToShip(MyButton mybutton, int i){
+	public void addButtonToShip(Cell cell, int i){
 		
-		buttonsList.get(i).add(mybutton);
+		cellsList.get(i).add(cell);
 	}
 	
 	
